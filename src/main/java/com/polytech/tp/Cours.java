@@ -36,4 +36,8 @@ public class Cours implements ICours {
     
     public String getMatiere() { return matiere; }
     public String getEnseignant() { return enseignant; }
+
+    public static CoursBuilder builder() {
+    return new CoursBuilder();
+}
 }
