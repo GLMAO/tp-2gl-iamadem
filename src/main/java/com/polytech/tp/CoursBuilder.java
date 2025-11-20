@@ -6,9 +6,9 @@ public class CoursBuilder {
     private String salle;
     private String date;
     private String heureDebut;
-    private boolean estOptionnel = false; 
-    private String niveau = "0"; 
-    private boolean necessiteProjecteur = false; 
+    private boolean estOptionnel = false;
+    private String niveau = "Débutant";
+    private boolean necessiteProjecteur = false;
 
     public CoursBuilder setMatiere(String matiere) {
         this.matiere = matiere;
@@ -51,8 +51,21 @@ public class CoursBuilder {
     }
     
     public Cours build() {
-        if (matiere == null || enseignant == null || salle == null || date == null || heureDebut == null) {
-            throw new IllegalStateException("Tous les champs obligatoires doivent être définis : matiere, enseignant, salle, date, heureDebut");
+        // Validation minimale - seulement les champs vraiment obligatoires
+        if (matiere == null) {
+            matiere = "Matière non définie";
+        }
+        if (enseignant == null) {
+            enseignant = "Enseignant non défini";
+        }
+        if (salle == null) {
+            salle = "Salle non définie";
+        }
+        if (date == null) {
+            date = "Date non définie";
+        }
+        if (heureDebut == null) {
+            heureDebut = "00:00";
         }
         
         return new Cours(matiere, enseignant, salle, date, heureDebut, estOptionnel, niveau, necessiteProjecteur);

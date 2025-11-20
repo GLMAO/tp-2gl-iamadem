@@ -22,6 +22,11 @@ public class Cours implements ICours {
         this.niveau = niveau;
         this.necessiteProjecteur = necessiteProjecteur;
     }
+    
+    
+    public static CoursBuilder builder() {
+    return new CoursBuilder();
+}
 
     @Override
     public String getDescription() {
@@ -37,7 +42,5 @@ public class Cours implements ICours {
     public String getMatiere() { return matiere; }
     public String getEnseignant() { return enseignant; }
 
-    public static CoursBuilder builder() {
-    return new CoursBuilder();
-}
+ 
 }
